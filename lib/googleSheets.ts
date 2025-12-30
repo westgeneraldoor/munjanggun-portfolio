@@ -5,7 +5,7 @@ import type {
 } from './types';
 
 // Sheet ID 설정
-const SHEET_ID = process.env.NEXT_PUBLIC_SHEET_ID || '1XmEMJqBgCVlD7LGDHxECmluK_IW-Y1J0F8j5k0vKcM4';
+const SHEET_ID = process.env.NEXT_PUBLIC_SHEET_ID || '1IpnKdBoJ9YwvlO6sGEYSORjn5x4m8bxRgeMDm_vLYpQ';
 
 if (!SHEET_ID) {
     console.warn('⚠️ NEXT_PUBLIC_SHEET_ID 환경 변수가 설정되지 않았습니다.');
