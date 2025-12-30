@@ -1,0 +1,264 @@
+/* Pretendard 폰트 (CDN) - 최상위에서 import */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  /* 기본 스타일 리셋 및 설정 */
+  * {
+    @apply border-neutral-200;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-sans bg-neutral-50 text-neutral-900;
+    font-feature-settings: "ss01", "ss02", "cv01";
+  }
+
+  /* 선택 스타일 */
+  ::selection {
+    @apply bg-brand-accent/20 text-neutral-900;
+  }
+
+  /* 포커스 스타일 */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-accent ring-offset-2;
+  }
+}
+
+@layer components {
+
+  /* ===== 버튼 컴포넌트 ===== */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-semibold text-sm rounded-xl transition-all duration-300 ease-smooth disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn px-6 py-3.5 bg-neutral-900 text-white hover:bg-neutral-800 active:scale-[0.98] shadow-medium hover:shadow-large;
+  }
+
+  .btn-secondary {
+    @apply btn px-6 py-3.5 bg-white text-neutral-900 border border-neutral-200 hover:bg-neutral-50 hover:border-neutral-300 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply btn px-4 py-2 bg-transparent text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900;
+  }
+
+  .btn-accent {
+    @apply btn px-6 py-3.5 bg-gradient-to-r from-brand-accent to-red-500 text-white hover:from-red-500 hover:to-brand-accent active:scale-[0.98] shadow-glow;
+  }
+
+  .btn-cta {
+    @apply btn px-8 py-4 bg-neutral-900 text-white text-base font-bold rounded-2xl hover:bg-neutral-800 active:scale-[0.98] shadow-large hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+
+  /* ===== 카드 컴포넌트 ===== */
+  .card {
+    @apply bg-white rounded-2xl border border-neutral-100 shadow-soft transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-large hover:border-neutral-200 hover:-translate-y-1;
+  }
+
+  .card-interactive {
+    @apply card-hover cursor-pointer active:scale-[0.99];
+  }
+
+  /* ===== 입력 컴포넌트 ===== */
+  .input {
+    @apply w-full px-4 py-3.5 bg-white text-neutral-900 border border-neutral-200 rounded-xl placeholder:text-neutral-400 transition-all duration-200 focus:border-neutral-400 focus:ring-4 focus:ring-neutral-100;
+  }
+
+  .input-lg {
+    @apply input px-5 py-4 text-lg rounded-2xl;
+  }
+
+  /* ===== 글래스모피즘 ===== */
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-soft;
+  }
+
+  .glass-dark {
+    @apply bg-neutral-900/80 backdrop-blur-xl border border-white/10 text-white;
+  }
+
+  /* ===== 텍스트 그라데이션 ===== */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 via-neutral-700 to-neutral-900;
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-accent via-red-400 to-brand-accent;
+  }
+
+  /* ===== 배지/태그 ===== */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full;
+  }
+
+  .badge-dark {
+    @apply badge bg-neutral-900 text-white;
+  }
+
+  .badge-light {
+    @apply badge bg-neutral-100 text-neutral-700;
+  }
+
+  .badge-accent {
+    @apply badge bg-brand-accent/10 text-brand-accent;
+  }
+
+  /* ===== 구분선 ===== */
+  .divider {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent;
+  }
+
+  /* ===== 로딩 스피너 ===== */
+  .spinner {
+    @apply inline-block rounded-full border-2 border-neutral-200 border-t-neutral-900 animate-spin;
+  }
+
+  .spinner-sm {
+    @apply spinner w-4 h-4;
+  }
+
+  .spinner-md {
+    @apply spinner w-8 h-8;
+  }
+
+  .spinner-lg {
+    @apply spinner w-12 h-12 border-[3px];
+  }
+
+  /* ===== 스켈레톤 로딩 ===== */
+  .skeleton {
+    @apply bg-gradient-to-r from-neutral-200 via-neutral-100 to-neutral-200 bg-[length:200%_100%] animate-shimmer rounded-lg;
+  }
+
+  /* ===== 오버레이 ===== */
+  .overlay {
+    @apply fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50;
+  }
+
+  /* ===== 섹션 래퍼 ===== */
+  .section {
+    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+
+  /* 스크롤바 숨기기 */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 커스텀 스크롤바 */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.neutral.300') transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-neutral-300 rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-400;
+  }
+
+  /* 텍스트 트렁케이트 */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* 애니메이션 딜레이 */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* 그라데이션 배경 */
+  .bg-gradient-subtle {
+    background: linear-gradient(180deg,
+        theme('colors.neutral.50') 0%,
+        theme('colors.white') 50%,
+        theme('colors.neutral.50') 100%);
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center,
+        theme('colors.neutral.100') 0%,
+        theme('colors.neutral.50') 70%);
+  }
+
+  /* 노이즈 텍스처 */
+  .noise {
+    position: relative;
+  }
+
+  .noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    pointer-events: none;
+  }
+}
