@@ -4,8 +4,8 @@ import type {
     ConstructionDetail, 시공항목, 견적항목
 } from './types';
 
-// 환경 변수에서 Sheet ID 가져오기 (보안 강화)
-const SHEET_ID = process.env.NEXT_PUBLIC_SHEET_ID;
+// Sheet ID 설정
+const SHEET_ID = process.env.NEXT_PUBLIC_SHEET_ID || '1XmEMJqBgCVlD7LGDHxECmluK_IW-Y1J0F8j5k0vKcM4';
 
 if (!SHEET_ID) {
     console.warn('⚠️ NEXT_PUBLIC_SHEET_ID 환경 변수가 설정되지 않았습니다.');
