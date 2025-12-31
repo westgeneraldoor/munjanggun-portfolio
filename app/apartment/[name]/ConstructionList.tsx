@@ -27,6 +27,14 @@ export default function ConstructionList({ constructions }: ConstructionListProp
     const [sortOption, setSortOption] = useState<SortOption>('동호수');
     const [viewMode, setViewMode] = useState<ViewMode>('gallery');
 
+    // 모바일 환경(768px 미만)일 경우 기본 뷰를 리스트로 설정
+    useEffect(() => {
+        const isMobile = window.innerWidth < 768;
+        if (isMobile) {
+            setViewMode('list');
+        }
+    }, []);
+
     const openGallery = (construction: ConstructionWithDetails) => {
         if (construction.photos.length > 0) {
             setSelectedConstruction(construction);
